@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OIR</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/video_comparison.js"></script>
+
+    <!-- minghan -->
+    <style type="text/css">
+        h3 {
+            height: 130px;
+            text-align: center;
+            /* font-weight: ; */
+            /* background-color: red; */
+            font-family: Chalkduster;
+            color: black;
+            width: 200px;
+            display: inline-block;
+            padding: 11px 15px 11px 15px;
+            border-radius: 10px;
+        }
+
+        font {
+            height: 130px;
+            text-align: center;
+            /* font-weight: ; */
+            /* background-color: red; */
+            font-family: Chalkduster;
+            color: black;
+            width: 200px;
+            display: inline-block;
+            padding: 11px 15px 11px 15px;
+            border-radius: 10px;
+        }
+
+        td {
+            height: 200px;
+            padding: 20px;
+            width: 200px;
+            /* background-color: red; */
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Object-aware Inversion and Reassembly for Image Editing
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://zhenyangcs.github.io/">Zhen Yang</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="">Ganggui Ding</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://scholar.google.com/citations?user=1ks0R04AAAAJ&hl=zh-CN">Wen
+                                    Wang</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://stan-haochen.github.io/">Hao Chen</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://bohanzhuang.github.io/">Bohan Zhuang</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://cshen.github.io/">Chunhua Shen</a><sup>1</sup>,
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Zhejiang University, China</span>&ensp;
+                            <span class="author-block"><sup>2</sup>Monash University, Australia</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <!-- 放入arxiv网站，如 https://arxiv.org/abs/2308.07926 -->
+                                    <a href="https://github.com/ZhenYangCS/OIR"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/ZhenYangCS/OIR"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Begin teaser video. -->
+    <!-- Translation. -->
+    <!-- <div class="columns is-centered has-text-centered">
+  <h2 class="title is-3">Video Translation</h2>
+</div> -->
+
+    <!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div>
+          <video class="video" id="Teaser"  width="50%"  loop playsinline autoPlay muted src="./static/video_demos_compressed/teaser/teaser.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas width="150" height="150" class="videoMerge" id="TeaserMerge"></canvas>
+    </div>
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Consistent</span> <span class="dnerf">Video</span> <span class="dnerf">Translation</span> with the learned canonical image and deformation. 
+        Slide for comparison. For all the demos, the inputs are provided on the left.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+    <!-- ./static/video_demos_compressed/teaser/teaser.mp4 -->
+    <!-- <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div style="width: 200px; height: 150px; float: left;">
+                <h3 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">cat → tiger<br>straw hat → colorful straw hat</h3>
+                <video class="video" id="Teaser" width="50%" loop playsinline autoPlay muted src="./test.mp4"
+                    onplay="resizeAndPlay(this)"></video>
+                <canvas width="150" height="150" class="videoMerge" id="TeaserMerge"></canvas>
+            </div>
+            <div style="width: 200px; height: 150px; float: right;">
+                <h3>sadfadsf</h3>
+                <video class="video" id="Teaser_1" width="50%" loop playsinline autoPlay muted src="./test.mp4"
+                    onplay="resizeAndPlay(this)"></video>
+                <canvas width="150" height="150" class="videoMerge" id="Teaser_1Merge"></canvas>
+            </div>
+        </div>
+    </section> -->
+
+
+
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <table>
+                <!--                 
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr> -->
+                <!-- 1-line -->
+                <tr>
+                    <td>
+                        <!-- <h3><span style="text-wrap: nowrap;"><span style="color: blue;">vase</span> → <span style="color: red;">teapot</span></span><br><span style="text-wrap: nowrap;"><span style="color: blue;">book</span> → <span style="color: red;">plate with fried egg and fork</span></span></h3> -->
+                        <h3><span style="color: blue;">vase</span> → <span
+                                style="color: red;">teapot</span></span><br><span style="color: blue;">book</span> →
+                            <span style="color: red;">plate with fried egg and fork</span></h3>
+                        <video class="video" id="Teaser0" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0005.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser0Merge" width="512px" height="512px"></canvas>
+                    </td>
+                    <td>
+                        <h3><span style="color: blue;">cat</span> → <span
+                                style="color: red;">tiger</span></span><br><span style="color: blue;">straw hat</span> →
+                            <span style="color: red;">colorful straw hat</span></h3>
+                        <video class="video" id="Teaser1" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0009.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser1Merge" width="512px" height="512px"></canvas>
+                    </td>
+                    <td>
+                        <h3><span style="color: blue;">house</span> → <span
+                                style="color: red;">church</span></span><br><span style="color: blue;">tables</span> →
+                            <span style="color: red;">tank</span></h3>
+                        <video class="video" id="Teaser2" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0011.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser2Merge" width="512px" height="512px"></canvas>
+                    </td>
+
+                    <td>
+                        <h3><span style="color: blue;">starfish</span> → <span style="color: red;">stuffed toy
+                                starfish</span></span><br><span style="color: blue;">foam</span> → <span
+                                style="color: red;">chequered blanket</span></h3>
+                        <video class="video" id="Teaser3" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0013.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser3Merge" width="512px" height="512px"></canvas>
+                    </td>
+                </tr>
+
+                <!-- 3-line -->
+                <tr>
+                    <td>
+                        <h3><span style="color: blue;">lighthouse</span> → <span style="color: red;">rocket taking
+                                off</span></span><br><span style="color: blue;">blue sky</span> → <span
+                                style="color: red;">sky with sunset</span></h3>
+                        <video class="video" id="Teaser4" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0016.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser4Merge" width="512px" height="512px"></canvas>
+                    </td>
+                    <td>
+                        <h3><span style="color: blue;">monitor</span> → <span style="color: red;">gift
+                                box</span></span><br><span style="color: blue;">keyboard</span> → <span
+                                style="color: red;">game controller</span></h3>
+                        <video class="video" id="Teaser5" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0221.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser5Merge" width="512px" height="512px"></canvas>
+                    </td>
+
+                    <td>
+                        <h3><span style="color: blue;">TV</span> → <span style="color: red;">TV playing a cartoon
+                                picture</span></span><br><span style="color: blue;">bench</span> → <span
+                                style="color: red;">crochet bench</span></h3>
+                        <video class="video" id="Teaser6" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0228.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser6Merge" width="512px" height="512px"></canvas>
+                    </td>
+
+                    <td>
+                        <h3><span style="color: blue;">plant</span> → <span style="color: red;">Lego
+                                plant</span></span><br><span style="color: blue;">human hand</span> → <span
+                                style="color: red;">wooden table</span></h3>
+                        <video class="video" id="Teaser7" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0271.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser7Merge" width="512px" height="512px"></canvas>
+                    </td>
+                </tr>
+
+                <!-- 3-line -->
+                <tr>
+
+                    <td>
+                        <h3><span style="color: blue;">Wall-E</span> → <span style="color: red;">crochet
+                                Wall-E</span></span><br><span style="color: blue;">water</span> → <span
+                                style="color: red;">a pile of confetti</span></h3>
+                        <video class="video" id="Teaser8" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0280.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser8Merge" width="512px" height="512px"></canvas>
+                    </td>
+
+                    <td>
+                        <h3><span style="color: blue;">dumplings</span> → <span style="color: red;">fry
+                                rice</span></span><br><span style="color: blue;">chopsticks</span> → <span
+                                style="color: red;">knife</span></h3>
+                        <video class="video" id="Teaser9" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0010.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser9Merge" width="512px" height="512px"></canvas>
+                    </td>
+
+                    <td>
+                        <h3><span style="color: blue;">car</span> → <span
+                                style="color: red;">cabriolet</span></span><br><span style="color: blue;">wooden
+                                house</span> → <span style="color: red;">glass house</span></h3>
+                        <video class="video" id="Teaser10" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0014.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser10Merge" width="512px" height="512px"></canvas>
+                    </td>
+
+                    <td>
+                        <h3><span style="color: blue;">rabbit wearing glasses</span> → <span style="color: red;">origami
+                                rabbit wearing glasses</span></span><br><span style="color: blue;">book</span> → <span
+                                style="color: red;">newspaper</span></h3>
+                        <video class="video" id="Teaser11" width="50%" playsinline autoPlay muted 
+                            src="./videos/multi_object_nice_0244.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas class="videoMerge" id="Teaser11Merge" width="512px" height="512px"></canvas>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Begin gallery. -->
+    <!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+      </div>
+    </div> -->
+
+
+    <!-- Begin gallery-1. -->
+    <!-- <div class="container">
+      <div id="results-carousel1" class="carousel results-carousel">
+        <div class="item g11">
+          <video poster="" id="g11" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1080x540/tifa.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g12">
+          <video poster="" id="g12" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1080x540/rainbow.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g13">
+          <video poster="" id="g13" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1080x540/beauty_1_base_transformed_dual(1).mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g14">
+          <video poster="" id="g14" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1080x540/beauty_1_base_transformed_dual(2).mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+		    <div class="item g15">
+          <video poster="" id="g15" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1080x540/beauty_0_base_video_hash_transformed_dual(1).mp4"
+                    type="video/mp4">
+        </video>
+        </div>
+        <div class="item g16">
+          <video poster="" id="g16" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1080x540/beauty_0_base_video_hash_transformed_dual(2).mp4"
+                    type="video/mp4">
+        </video>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+    <!-- Begin gallery-2. -->
+    <!-- <div class="container">
+      <div id="results-carousel2" class="carousel results-carousel">
+        <div class="item g21">
+          <video poster="" id="g21" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1080x960/scene_1_base_transformed_dual.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g22">
+          <video poster="" id="g22" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1080x960/dog.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g23">
+          <video poster="" id="g23" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1080x960/smoke_colorful.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g24">
+          <video poster="" id="g24" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1080x960/smoke_ink.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Begin gallery-3. -->
+    <!-- <div class="container">
+      <div id="results-carousel3" class="carousel results-carousel">
+        <div class="item g31">
+          <video poster="" id="g31" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1920x540/long_season.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g32">
+          <video poster="" id="g32" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1920x540/scene_3_base_transformed_dual.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g33">
+          <video poster="" id="g33" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1920x540/titanic.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g34">
+          <video poster="" id="g34" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1920x540/lemon_earth.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g35">
+          <video poster="" id="g35" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1920x540/cloud_atlas4_base_transformed_dual.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g36">
+          <video poster="" id="g36" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video_demos_compressed/1920x540/diamond_1_base_transformed_dual.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section> -->
+    <!-- End gallery. -->
+
+
+
+
+    <!-- Begin video slider. -->
+    <!-- <br>
+<div class="container is-max-desktop">
+  <div class="columns is-centered">
+    <div class="column is-two-fifths">
+      <div>
+        <video class="video" id="FinalSlider"  width="50%"  loop playsinline autoPlay muted src="./static/video_demos_compressed/slider/slider.mp4" onplay="resizeAndPlay(this)"></video>
+        <canvas width="150" height="150" class="videoMerge" id="FinalSliderMerge"></canvas> 
+      </div>
+  <br>Left: The input.  Right: The synthesized video by CoDeF with the prompt "Chinese ink painting".
+      <br/>
+    </div>
+  </div>
+</div>
+  
+<br> -->
+    <!-- End video slider -->
+    <!-- End teaser video. -->
+
+
+
+    <!-- Begin abstract -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <img src='static/images/motivation.png' id="motivation"><br><br>
+                    <div class="content has-text-justified">
+                        <p>
+                            Diffusion-based image editing methods have achieved remarkable advances in text-driven image editing. 
+                            The editing task aims to convert an input imagewith the original text prompt intothe desired image that is well aligned with the target text prompt. 
+                            By comparing the original and target prompts, we can obtain numerous editing pairs, each comprising an object and its corresponding editing target. 
+                            To allow editability while maintaining fidelity to the input image, existing editing methods typically involve a fixed number of inversion steps that project the whole input image to its noisier latent representation, followed by a denoising process guided by the target prompt. 
+                            However, we find that the optimal number of inversion steps for achieving ideal editing results varies significantly among different editing pairs, owing to varying editing difficulties. 
+                            <b>Therefore, the current literature, which relies on a fixed number of inversion steps, produces sub-optimal generation quality, especially when handling multiple editing pairs in a natural image. </b>
+                            To this end, we propose a new image editing paradigm, dubbed Object-aware Inversion and Reassembly (OIR), to enable object-level fine-grained editing. 
+                            Specifically, we design a new search metric, which determines the optimal inversion steps for each editing pair, by jointly considering the editability of the target and the fidelity of the non-editing region. 
+                            When editing an image, we first search for the optimal inversion step for each editing pair with our search metric and edit them separately to circumvent concept mismatch. 
+                            Subsequently, we propose an additional reassembly step to seamlessly integrate the respective editing results and the non-editing region to obtain the final edited image. 
+                            To systematically evaluate the effectiveness of our method, we collect two datasets for benchmarking single- and multi-object editing, respectively. 
+                            Experiments demonstrate that our method achieves superior performance in editing object shapes, colors, materials, categories, etc., especially in multi-object editing scenarios.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br>
+    <!-- End abstract -->
+
+
+
+    <!-- Begin method -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Method</h2>
+                    <img src='static/images/search_metric.png' id="motivation"><br><br>
+                    <div class="content has-text-justified">
+                        <p>
+                            <b>Search Metric: </b>
+                            (a) For an editing pair, we obtain the candidate images by denoising each inverted latent. 
+                            (b) We use a mask generator to jointly compute the metrics S<sub>e</sub> and S<sub>ne</sub>, and finally we obtain S by computing their average.
+                            <b>Search Metric represents a new editing paradigm, comparable to the feature-injected image editing method.</b>
+                        </p>
+                    </div>
+
+                    <img src='static/images/OIR.png' id="motivation"><br><br>
+                    <div class="content has-text-justified">
+                        <p>
+                            <b>OIR:</b>
+                            (a) We create guided prompts for all editing pairs using P<sub>o</sub> and P<sub>t</sub>. 
+                            (b) For each editing pair, we utilize the search pipeline to automatically find the optimal inversion step. 
+                            (c) From each optimal inversion step, we guide the denoising individually using its specific prompt. 
+                            We crop the denoised latent of the editing regions and splice them with the inverted latent of the non-editing region's at the reassembly step. 
+                            Subsequently, we apply a re-inversion process to the reassembled latent and denoise it guided by P<sub>t</sub>.
+                            <b>OIR has delivered outstanding results in multi-object editing.</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br>
+    <!-- End method -->
+
+
+    <!-- Begin Other results -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Other results</h2>
+                    <img src='static/images/Visualization_of_search_metric.png' id="motivation"><br><br>
+                    <div class="content has-text-justified">
+                        <p>
+                            Visualization of the Search Metric: The images on the right are the candidate images acquired using the proposed search metric for each editing pair. 
+                            In the bottom-left corner, a curve is plotted with its x-axis representing the inversion step and the y-axis denoting S of the search metric.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br>
+    <!-- End Other results -->
+
+
+
+
+    <!-- Other applications. -->
+    <!-- <div class="columns is-centered has-text-centered">
+  <h2 class="title is-3">Other Applications</h2><br>
+</div> -->
+
+
+
+    <!-- Point-based Tracking. -->
+    <!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser_tracking" autoplay muted loop playsinline height="100%">
+        <source src="./static/video_demos_compressed/teaser/tracking_zoom.mp4"
+                type="video/mp4">
+      </video>
+
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Point-based Tracking</span> with the learned canonical image and deformation.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+
+    <!-- Segmentation-based Tracking. -->
+    <!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div>
+          <video class="video" id="SegTrack" width="60%" loop playsinline autoPlay muted src="./static/video_demos_compressed/teaser/segtrack.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas width="150" height="150" class="videoMerge" id="SegTrackMerge"></canvas>
+    </div>
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Segmentation-based Tracking</span>. The segmentation mask is acquired based on the learned canonical image and propagated to the sequence. Slide for better visualization.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+    <!-- Super-resolution. -->
+    <!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div>
+          <video class="video" id="Superres" width="60%" loop playsinline autoPlay muted src="./static/video_demos_compressed/teaser/cloud_atlas_SR_dual.mp4" onplay="resizeAndPlay(this)"></video>
+          <canvas width="150" height="150" class="videoMerge" id="SuperresMerge"></canvas>
+    </div>
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Video</span> <span class="dnerf">Super-resolution</span> with the learned canonical image and deformation. 
+        Slide for comparison.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+
+<!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+    author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+    title     = {Nerfies: Deformable Neural Radiance Fields},
+    journal   = {ICCV},
+    year      = {2021},
+    }</code></pre>
+    </div>
+</section> -->
+
+
+    <footer class="footer">
+        <div class="container">
+            <!-- <div class="content has-text-centered">
+                <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div> -->
+            <div class="content has-text-centered">
+                <div class="content">
+                    <p>
+                        This website was modified from <a
+                            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. We appreciate for sharing
+                        this perfect template!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        bulmaCarousel.attach('#results-carousel1', {
+            slidesToScroll: 1,
+            slidesToShow: 2,
+            infinite: true,
+            autoplay: false,
+        });
+        bulmaCarousel.attach('#results-carousel2', {
+            slidesToScroll: 1,
+            slidesToShow: 2,
+            infinite: true,
+            autoplay: false,
+        });
+        bulmaCarousel.attach('#results-carousel3', {
+            slidesToScroll: 1,
+            slidesToShow: 1,
+            infinite: true,
+            autoplay: false,
+        });
+    </script>
+
+</body>
+
+</html>
